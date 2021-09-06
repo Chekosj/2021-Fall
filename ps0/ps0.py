@@ -34,7 +34,21 @@ def calculate_size(T):
     # The return value is up to you
     
     # Your code goes here
-    pass
+    if T == None: #Check to make sure tree actually exists
+        return 0
+    T.temp = (calculate_size(T.left) + 1 + calculate_size(T.right))
+    return(T.temp)
+    
+    # for T.left in T:
+    #     return calculate_size(T.left)
+
+
+    
+    
+    # else:
+    #     T.temp == (calculate_size(T.left) + 1 + calculate_size(T.right)) #Attempting to add up what the value for current temp should be
+    #     return (T.left) and (T.right) #Need to return Left and make it go all the way then go to the right and go all the way down. 
+    #                                   #Not sure how I would do that yet.
 
 
 
