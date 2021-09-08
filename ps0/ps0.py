@@ -4,7 +4,7 @@
 #               #
 #################
 
-
+import math
 
 #
 # Setup
@@ -30,27 +30,10 @@ class BinaryTree:
 # Sets the temp of each node in the tree T
 # ... to the size of that subtree
 def calculate_size(T):
-    # Set the temp for each node in the tree
-    # The return value is up to you
-    
-    # Your code goes here
     if T == None: #Check to make sure tree actually exists
         return 0
     T.temp = (calculate_size(T.left) + 1 + calculate_size(T.right))
     return(T.temp)
-    
-    # for T.left in T:
-    #     return calculate_size(T.left)
-
-
-    
-    
-    # else:
-    #     T.temp == (calculate_size(T.left) + 1 + calculate_size(T.right)) #Attempting to add up what the value for current temp should be
-    #     return (T.left) and (T.right) #Need to return Left and make it go all the way then go to the right and go all the way down. 
-    #                                   #Not sure how I would do that yet.
-
-
 
 #
 # Problem 3
@@ -64,7 +47,44 @@ def FindSubtree(T, L, U):
     # Implement your Part 2 proof in O(n)-time
     # The return value is a subtree that meets the constraints
 
-    # Your code goes here
+    if T == None:
+        return 0 
+    if (calculate_size(T) > U) & (calculate_size(T) >= 2*L) : 
+        if T.left == None :
+            FindSubtree ()
+
+
     pass
 
 
+
+# T = BinaryTree(None,1)
+
+# T.left = BinaryTree(None,2)
+# T.right = BinaryTree(None,3)
+# T.left.left = BinaryTree(None,4)
+# T.right.right = BinaryTree(None,5)
+# T.right.right.left = BinaryTree(None,6)
+# T.right.right.right = BinaryTree(None,7)
+# T.right.right.right.right = BinaryTree(None,8)
+
+# def Balance(T: BinaryTree):
+#     calculate_size(T)
+#     if T.temp<=2:
+#         return T
+#     else:
+#         L = math.floor(T.temp/3)
+#         U = math.ceil(2*T.temp/3)
+#         subT = FindSubtree(T,L,U)
+#         newT = BinaryTree()
+#         newT.left = Balance(T)
+#         newT.right = Balance(subT)
+#         return newT
+
+# print (Balance (T))
+
+
+
+t = math.ceil(2*8/3)
+
+print (t)
